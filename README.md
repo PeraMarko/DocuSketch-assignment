@@ -2,7 +2,7 @@
 
 ## Task Description
 
-There is a room of random shapes, all the walls are straight lines. Coordinates are described in simple.json, triangle.json, and t_shape.json.
+There is a room of random shapes, all the walls are straight lines.
 
 The room has "length" and "width" dimensions. These are 2 perpendicular segments, where either "length" or "width" is parallel to one of the walls. Both segments are stretched for a length from wall to wall.
 
