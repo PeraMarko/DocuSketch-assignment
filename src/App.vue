@@ -1,23 +1,16 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import Canvas from "./components/Canvas.vue";
-import { CANVAS_SIZE, ROOMS, GAP } from "./constants";
-import { WallsCoordinates } from "./types";
+import useRoom from "./hooks/useRoom";
 
-const currentRoomIndex = ref(Math.floor(Math.random() * 3));
-const currentRoom = computed(() => ROOMS[currentRoomIndex.value]);
-const onChangeRoom = () => {
-  if (currentRoomIndex.value === ROOMS.length - 1) {
-    currentRoomIndex.value = 0;
-    return;
-  }
-
-  currentRoomIndex.value += 1;
-};
+const { room, currentWallId, onChangeRoom, onChangeWall } = useRoom();
 </script>
 
 <template>
-  <Canvas msg="canvasSize.height + ''" />
+  <Canvas :room="room" :wall-id="currentWallId" />
+  <div class="action">
+    <button @click="onChangeRoom">Next Room</button>
+    <button @click="onChangeWall">Next Wall</button>
+  </div>
 </template>
 
 <style scoped>
