@@ -11,11 +11,11 @@ const useRoom = () => {
   );
 
   const onChangeRoom = () => {
+    currentWallIndex.value = 0;
     if (currentRoomIndex.value === ROOMS.length - 1) {
       currentRoomIndex.value = 0;
       return;
     }
-
     currentRoomIndex.value += 1;
   };
 
